@@ -2,42 +2,54 @@
 {% load static %}
 {% block content %}
     <!-- Contact Form-->
-    <section class="container position-relative pt-5" style="margin-bottom: -130px; margin-top: -160px; z-index: 5;">
-        <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4">
-          <h2 class="h4 block-title text-center">با من در تماس باشید</h2>
-          <form class="needs-validation pt-4" novalidate>
-            <div class="row">
-              <div class="col-lg-4 col-md-6">
-                <div class="form-group">
-                  <label for="cont-name">نام <strong class='text-danger'>*</strong></label>
-                  <input class="form-control" type="text" id="cont-name" required>
-                  <div class="invalid-feedback">لطفا نام خود را وارد کنید!</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="form-group">
-                  <label for="cont-email">ایمیل <strong class='text-danger'>*</strong></label>
-                  <input class="form-control text-left placeholder-right" type="email" id="cont-email" required>
-                  <div class="invalid-feedback">لطفا آدرس ایمیل معتبر وارد کنید!</div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="form-group">
-                  <label for="cont-subject">موضوع</label>
-                  <input class="form-control" type="text" id="cont-subject">
-                </div>
+    <section class="container position-relative pt-5" style="z-index: 5;">
+      <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4">
+        <h2 class="h4 block-title text-center">با من در تماس باشید</h2>
+        <form method="POST" action="{% url 'website:contact' %}" class="needs-validation pt-4" novalidate>
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="form-group">
+                <label for="name">نام <strong class='text-danger'>*</strong></label>
+                <input class="form-control" type="text" name="name" id="name" required>
+                <div class="invalid-feedback">لطفا نام خود را وارد کنید!</div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="cont-message">پیام <strong class='text-danger'>*</strong></label>
-              <textarea class="form-control" id="cont-message" rows="10" required></textarea>
-              <div class="invalid-feedback">لطفا پیام خود را بنویسید</div>
+            <div class="col-lg-4 col-md-6">
+              <div class="form-group">
+                <label for="email">ایمیل <strong class='text-danger'>*</strong></label>
+                <input class="form-control text-left placeholder-right" type="email" name="email" id="email" required>
+                <div class="invalid-feedback">لطفا آدرس ایمیل معتبر وارد کنید!</div>
+              </div>
             </div>
-            <div class="text-center">
-              <button class="btn btn-gradient" type="submit">ارسال پیام</button>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label for="subject">موضوع</label>
+                <input class="form-control" type="text" name="subject" id="subject">
+              </div>
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div class="form-group">
+            <label for="message">پیام <strong class='text-danger'>*</strong></label>
+            <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
+            <div class="invalid-feedback">لطفا پیام خود را بنویسید</div>
+          </div>
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}خطا:{% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+          <div class="text-center">
+            <button class="btn btn-gradient" type="submit">ارسال پیام</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
 {% endblock content %}
     

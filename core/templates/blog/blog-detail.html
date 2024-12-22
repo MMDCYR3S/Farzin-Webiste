@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Page Content-->
+    <div class="container pb-5 mb-3 mt-3">
+        <div class="row">
+          <!-- Post Content-->
+          <div class="col-lg-9">
+            <!-- Single Post Meta-->
+            <div class="d-flex justify-content-between align-items-center pb-3">
+              <div><a class="scroll-to post-author" href="#author">
+                  <div class="post-author-avatar"><img src="{% static 'img/blog/authors/th01.jpg' %}" alt="Post Author"/>
+                  </div>
+                  <div class="post-author-name">سارا بیات</div></a></div>
+              <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>۳</a><span class="text-sm"><i class="fe-icon-clock"></i>اردیبهشت ۰۳, ۱۳۹۷</span></div>
+            </div>
+            <hr class="mb-4">
+            <!-- Carousel-->
+            <div class="owl-carousel" data-owl-carousel="{ &quot;rtl&quot;: true, &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true }"><img src="{% static 'img/components/carousel/07.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/02.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/04.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/05.jpg' %}" alt="Carousel Image"/>
+            </div>
+            <p class="pb-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+            <h4>معماری مدرن در ۱۰ اسلایدها . گرایش‌ها جدید و بازگشت به عقب .</h4>
+            <p class="pb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
+            <div class="blockquote mb-4">
+              <p class="text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+              <footer class="blockquote-footer">باربارا ویلسون
+                <cite>معمار،طراح</cite>
+              </footer>
+            </div>
+            <p class="pb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد؟</p>
+            <!-- Single Post Tags + Share-->
+            <div class="d-sm-flex justify-content-between align-items-center border-top border-bottom mb-5 py-2">
+              <div class="py-2"><a class="tag-link" href="#">معماری</a><a class="tag-link" href="#">طراحی</a><a class="tag-link" href="#">ساخت و ساز</a></div>
+              <div class="py-2"><span class="dinline-block align-middle py-2 ml-2"><strong>اشتراک:</strong></span><a class="social-btn sb-style-3 sb-facebook mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-3 sb-twitter mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-3 sb-pinterest mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="socicon-pinterest"></i></a></div>
+            </div>
+            <!-- Single Post Author-->
+            <div class="pb-3" id="author" data-offset-top="100">
+              <div class="author-card mb-5">
+                <div class="author-card-cover" style="background-image: url({% static 'img/widgets/author/cover.jpg' %});"></div>
+                <div class="author-card-profile">
+                  <div class="author-card-avatar"><img src="{% static 'img/widgets/author/avatar.jpg' %}" alt="Post Author"/>
+                  </div>
+                  <div class="author-card-details">
+                    <h5 class="author-card-name">سارا بیات</h5><span class="author-card-position">معمار و طراح</span>
+                  </div>
+                </div>
+                <p class="author-card-info">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                <div class="author-card-social-bar-wrap">
+                  <div class="author-card-social-bar"><a class="social-btn sb-style-1 sb-facebook" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-1 sb-pinterest" href="#"><i class="socicon-pinterest"></i></a><a class="social-btn sb-style-1 sb-twitter" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-1 sb-linkedin" href="#"><i class="socicon-linkedin"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <hr class="pb-4">
+            <!-- Entry Nanigation-->
+            <nav class="entry-navigation">
+              <div class="prev-btn"><a class="label" href="#"><i class="fe-icon-arrow-right"></i>پست قبلی </a>
+                <div class="post-preview">
+                  <div class="post-preview-thumb"><img src="{% static 'img/blog/navigation/02.jpg' %}" alt="Blog post thumbnail"/>
+                  </div>
+                  <div class="post-preview-details"><span class="post-preview-title">پیشرفت تکنولوژیکی</span><span class="post-preview-meta"><i class="fe-icon-calendar"></i>اردیبهشت ۰۳, ۱۳۹۷</span></div>
+                </div>
+              </div><a class="back-btn" href="blog-grid-rs.html"><i class="fe-icon-grid"></i></a>
+              <div class="next-btn"><a class="label" href="#">پست بعدی <i class="fe-icon-arrow-left"></i></a>
+                <div class="post-preview">
+                  <div class="post-preview-details"><span class="post-preview-title">طبیعت مادر دارد حرف می‌زند</span><span class="post-preview-meta"><i class="fe-icon-calendar"></i>اردیبهشت ۰۳, ۱۳۹۷</span></div>
+                  <div class="post-preview-thumb"><img src="{% static 'img/blog/navigation/01.jpg' %}" alt="Blog post thumbnail"/>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-lg-3">
+            <!-- Single Post Sidebar-->
+            <!-- Off-Canvas Toggle--><a class="offcanvas-toggle" href="#blog-single-sidebar" data-toggle="offcanvas"><i class="fe-icon-sidebar"></i></a>
+            <!-- Off-Canvas Container-->
+            <aside class="offcanvas-container" id="blog-single-sidebar">
+              <div class="offcanvas-scrollable-area px-4 pt-5 px-lg-0 pt-lg-0"><span class="offcanvas-close"><i class="fe-icon-x"></i></span>
+                <!-- Categories-->
+                <div class="widget widget-categories">
+                  <h4 class="widget-title">دسته بندی ها</h4>
+                  <ul>
+                    <li><a href="#technology" data-toggle="collapse">نرم افزار و تکنولوژی<span>&nbsp;(۴۵)</span></a>
+                      <div class="collapse show" id="technology">
+                        <ul>
+                          <li><a href="#">بررسی گجت ها<span>&nbsp;(۲۲)</span></a></li>
+                          <li><a href="#">رباتیک و هوش مصنوعی<span>&nbsp;(۱۰)</span></a></li>
+                          <li><a href="#">گرایش‌های فناورانه<span>&nbsp;(۱۳)</span></a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a class="collapsed" href="#design" data-toggle="collapse">طراحی دیجیتال<span>&nbsp;(۷۶)</span></a>
+                      <div class="collapse" id="design">
+                        <ul>
+                          <li><a href="#">طراحی وب<span>&nbsp;(۳۱)</span></a></li>
+                          <li><a href="#">طراحی رابط کاربری موبایل<span>&nbsp;(۲۸)</span></a></li>
+                          <li><a href="#">بررسی ابزار طراحی<span>&nbsp;(۱۷)</span></a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a class="collapsed" href="#architecture" data-toggle="collapse">معماری<span>&nbsp;(۳۲)</span></a>
+                      <div class="collapse" id="architecture">
+                        <ul>
+                          <li><a href="#">گرایش های مدرن <span>&nbsp;(۲۳)</span></a></li>
+                          <li><a href="#">تاریخ معماری <span>&nbsp;(۹)</span></a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a href="#">بازاریابی و مدیریت <span>&nbsp;(۲۴)</span></a></li>
+                    <li><a href="#">سرگرمی و شیوه زندگی <span>&nbsp;(۱۸)</span></a></li>
+                  </ul>
+                </div>
+                <!-- Recent Comments-->
+                <div class="widget widget-recent-comments">
+                  <h4 class="widget-title">نظرات اخیر</h4><a class="recent-comment" href="#"><span class="recent-comment-meta">آرش کیوان در</span>
+                    <div class="recent-comment-title">ایده طراحی</div></a><a class="recent-comment" href="#"><span class="recent-comment-meta">جمشید راد در</span>
+                    <div class="recent-comment-title">بهترین پلاگین های وردپرس</div></a><a class="recent-comment" href="#"><span class="recent-comment-meta">خسرو بهرامی در</span>
+                    <div class="recent-comment-title">۵ ابزار طراحی مدرن</div></a>
+                </div>
+                <!-- Related Posts-->
+                <div class="widget widget-featured-posts">
+                  <h4 class="widget-title"> نوشته های اخیر</h4><a class="featured-post" href="#">
+                    <div class="featured-post-thumb"><img src="{% static 'img/widgets/blog/01.jpg' %}" alt="Post Thumbnail"/>
+                    </div>
+                    <div class="featured-post-info">
+                      <div class="featured-post-meta"><span class="text-primary opacity-70"><i class="fe-icon-clock"></i>۰۷ / ۰۳ / ۱۳۹۸</span><span class="mr-3"><i class="fe-icon-message-square"></i>۲۱</span></div>
+                      <div class="featured-post-title">لورم ایپسوم متن ساختگی با تولید سادگی.</div>
+                    </div></a><a class="featured-post" href="#">
+                    <div class="featured-post-thumb"><img src="{% static 'img/widgets/blog/02.jpg' %}" alt="Post Thumbnail"/>
+                    </div>
+                    <div class="featured-post-info">
+                      <div class="featured-post-meta"><span class="text-primary opacity-70"><i class="fe-icon-clock"></i>۰۱ / ۰۳ / ۱۳۹۸</span><span class="mr-3"><i class="fe-icon-message-square"></i>۱۷</span></div>
+                      <div class="featured-post-title">لورم ایپسوم متن ساختگی با تولید سادگی.</div>
+                    </div></a><a class="featured-post" href="#">
+                    <div class="featured-post-thumb"><img src="{% static 'img/widgets/blog/03.jpg' %}" alt="Post Thumbnail"/>
+                    </div>
+                    <div class="featured-post-info">
+                      <div class="featured-post-meta"><span class="text-primary opacity-70"><i class="fe-icon-clock"></i>۰۴ / ۰۳ / ۱۳۹۸</span><span class="mr-3"><i class="fe-icon-message-square"></i>۸</span></div>
+                      <div class="featured-post-title">لورم ایپسوم متن ساختگی با تولید سادگی.</div>
+                    </div></a>
+                </div>
+                <!-- Tag Cloud-->
+                <div class="widget">
+                  <h4 class="widget-title">برچسبها</h4><a class="tag-link" href="#">تکنولوژی</a><a class="tag-link" href="#">نرم افزار</a><a class="tag-link" href="#">دیجیتال</a><a class="tag-link" href="#">طراحی وب</a><a class="tag-link" href="#">اجتماعی</a><a class="tag-link active" href="#">فریلنسر</a><a class="tag-link" href="#">بازاریابی</a><a class="tag-link" href="#">مدیریت</a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <!-- Single Post Comments-->
+      <div class="bg-secondary py-5" id="comments">
+        <div class="container pb-4">
+          <div class="row">
+            <div class="col-lg-9">
+              <h4 class="text-center pb-3">۳ دیدگاه</h4>
+              <div class="blockquote comment mb-4">
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                <div class="d-sm-flex justify-content-between align-items-center">
+                  <div class="testimonial-footer">
+                    <div class="testimonial-avatar"><img src="{% static 'img/testimonials/03.jpg' %}" alt="Comment Author Avatar"/>
+                    </div>
+                    <div class="d-table-cell align-middle pr-2">
+                      <div class="blockquote-footer">محمدرضا
+                        <cite>اردیبهشت ۰۳, ۱۳۹۷ در ۳:۱۰ بعداظهر</cite>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-3"><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
+                </div>
+                <div class="blockquote comment">
+                  <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                  <div class="testimonial-footer">
+                    <div class="testimonial-avatar"><img src="{% static 'img/testimonials/05.jpg' %}" alt="Comment Author Avatar"/>
+                    </div>
+                    <div class="d-table-cell align-middle pr-2">
+                      <div class="blockquote-footer">خسرو شکیبا
+                        <cite>اردیبهشت ۰۳, ۱۳۹۷ در ۵:۰۰ بعداظهر</cite>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="blockquote comment">
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                <div class="d-sm-flex justify-content-between align-items-center">
+                  <div class="testimonial-footer">
+                    <div class="testimonial-avatar"><img src="{% static 'img/testimonials/04.jpg' %}" alt="Comment Author Avatar"/>
+                    </div>
+                    <div class="d-table-cell align-middle pr-2">
+                      <div class="blockquote-footer">سارا نعمتی
+                        <cite>اردیبهشت ۰۳, ۱۳۹۷ در ۱۱:۵۰ صبح</cite>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-3"><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock content %}
+    

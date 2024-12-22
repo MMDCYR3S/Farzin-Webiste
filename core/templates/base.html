@@ -63,17 +63,17 @@
                   <div class="col-sm-6">
                     <ul class="list-unstyled">
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:index' %}">صفحه اصلی</a></li>
+                      <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'blog:blog' %}">وبلاگ</a></li>
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:about' %}">درباره من</a></li>
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:contact' %}">ارتباط با من</a></li>
-                      <li class="mb-0"><a class="dropdown-item lead py-2" href="blog-grid-rs.html">وبلاگ</a></li>
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="account-orders.html">حساب کاربری</a></li>
                     </ul>
                   </div>
                   <div class="col-sm-6 d-none d-sm-block pt-3">
                     <h6>تماس با ما</h6>
                     <ul class="list-icon mb-4 pb-2">
-                      <li><i class="fe-icon-map-pin text-muted"></i>ایران - تهران</li>
-                      <li><i class="fe-icon-phone text-muted"></i>۰۲۱-۱۱۱۱۱۱۱۱</li>
+                      <li><i class="fe-icon-map-pin text-muted"></i>ایران - اصفهان</li>
+                      <li><i class="fe-icon-phone text-muted"></i>031-32156481</li>
                       <li><i class="fe-icon-mail text-muted"></i>info@example.com</li>
                     </ul>
                     <h6 class="pb-2">شبکه های اجتماعی</h6><a class="social-btn sb-style-6 sb-facebook" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-6 sb-dribbble" href="#"><i class="socicon-dribbble"></i></a><a class="social-btn sb-style-6 sb-twitter" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-6 sb-linkedin" href="#"><i class="socicon-linkedin"></i></a><a class="social-btn sb-style-6 sb-youtube" href="#"><i class="socicon-youtube"></i></a>
@@ -93,17 +93,47 @@
       {% endblock content %}
     <!-- Content Ends -->
 
-        <!-- Footer-->
-        <footer class="bg-dark pt-5 pb-4">
-        <div class="container pt-5">
-            <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between align-items-center pt-5">
-            <div class="w-100 order-2 pt-3 text-center text-sm-left"><a class="social-btn sb-style-6 sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-6 sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-6 sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-btn sb-style-6 sb-flickr sb-light-skin" href="#"><i class="socicon-flickr"></i></a></div>
-            <p class="d-block w-100 m-0 text-sm text-white order-1 pt-3 text-center text-sm-right"><span class="opacity-60">همه حقوق محفوظ است.© ساخته شده با</span> <i class='d-inline-block align-middle fe-icon-heart text-danger'></i> <a href="https://www.rtl-theme.com/" class="d-inline-block nav-link text-white opacity-60 p-0" target="_blank">راستچین</a></p>
-            </div>
+              <!-- Footer-->
+      <footer class="d-lg-flex align-items-center bg-dark">
+        <div class="w-100 py-5 px-4">
+          <div class="mx-auto text-center" style="max-width: 340px;">
+            <h6 class="text-sm font-weight-medium text-white text-uppercase text-center">میخوای در آمریکا استخدام شی؟</h6>
+            <ul class="list-unstyled text-white">
+              <li><span class='opacity-60'>شماره تماس:</span>۰۲۱۱۱۱۱۱۱۱۱</li>
+              <li><span class='opacity-60'>ایمیل:</span> info@example.com</li>
+            </ul>
+            <div class="widget pt-3 mb-4"><a class="social-btn sb-style-6 sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-6 sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-6 sb-dribbble sb-light-skin" href="#"><i class="socicon-dribbble"></i></a><a class="social-btn sb-style-6 sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-btn sb-style-6 sb-behance sb-light-skin" href="#"><i class="socicon-behance"></i></a></div>
+            <p class="m-0 text-sm text-white"><span class="opacity-60">همه حقوق محفوظ است.© ساخته شده با</span> <i class='d-inline-block align-middle fe-icon-heart text-danger'></i> <a href="https://www.rtl-theme.com/" class="d-inline-block nav-link text-white opacity-60 p-0" target="_blank">راستچین</a></p>
+          </div>
         </div>
-        </footer>
+        <div class="w-100 py-5 px-4" style="background-color: #30363d;">
+          <div class="widget widget-gallery mb-0 mx-auto" style="max-width: 250px;">
+            <div class="d-flex justify-content-between"><a class="gallery-item mb-2 ml-2" href="{% static 'img/components/gallery/01.jpg' %}" data-fancybox="gallery1" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/widgets/gallery/th01.jpg' %}" alt="Gallery Image"/></a><a class="gallery-item mb-2 ml-2" href="{% static 'img/components/gallery/02.jpg' %}" data-fancybox="gallery1" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/widgets/gallery/th02.jpg' %}" alt="Gallery Image"/></a><a class="gallery-item type-video mb-2" href="https://www.youtube.com/watch?v=VE30ntVVfvAk&amp;amp;autoplay=1&amp;amp;rel=0&amp;amp;controls=0&amp;amp;showinfo=0" data-fancybox="gallery1" data-width="1000" data-height="563"><img src="{% static 'img/widgets/gallery/th03.jpg' %}" alt="Gallery Image"/></a></div>
+            <div class="d-flex justify-content-between"><a class="gallery-item mb-2 ml-2" href="{% static 'img/components/gallery/04.jpg' %}" data-fancybox="gallery1" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/widgets/gallery/th04.jpg' %}" alt="Gallery Image"/></a><a class="gallery-item type-video mb-2 ml-2" href="https://vimeo.com/25141497?color=ac32e4" data-fancybox="gallery1" data-width="1000" data-height="563"><img src="{% static 'img/widgets/gallery/th05.jpg' %}" alt="Gallery Image"/></a><a class="gallery-item mb-2" href="{% static 'img/components/gallery/06.jpg' %}" data-fancybox="gallery1" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/widgets/gallery/th06.jpg' %}" alt="Gallery Image"/></a></div>
+            <div class="pt-1"><a class="btn btn-gradient btn-block" href="#"><i class="fe-icon-instagram"></i>&nbsp;مشاهده اینستاگرام ما</a></div>
+          </div>
+        </div>
+        <div class="w-100 py-5 px-4">
+          <div class="mx-auto" style="max-width: 340px;">
+            <h6 class="text-sm font-weight-medium text-white text-uppercase text-center">مشترک شدن در خبرنامه</h6>
+            <p class="text-sm text-white opacity-60 text-center pb-1">برای دریافت آخرین اخبار ایمیل خود را وارد نمایید.</p>
+            <form action="" method="post" target="_blank" novalidate>
+              <div class="input-group">
+                <input class="form-control form-control-light-skin placeholder-right text-left" type="email" name="EMAIL" placeholder="ایمیل">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">ثبت نام</button>
+                </div>
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
+              </div>
+            </form>
+          </div>
+        </div>
+      </footer>
     </div>
-    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="fe-icon-chevron-up"></i></a>
+      <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="fe-icon-chevron-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->

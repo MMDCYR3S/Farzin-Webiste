@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Page Content -->
+  <div class="container pb-5 mb-3">
+    <!-- Filters -->
+    <ul class="nav nav-tabs nav-tabs-style-2 mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" data-filter="*">همه&nbsp;<sup>۹</sup></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-filter=".mobile-apps">برنامه های موبایل&nbsp;<sup>۳</sup></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-filter=".web-design">طراحی وب&nbsp;<sup>۱</sup></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-filter=".branding">برند&nbsp;<sup>۳</sup></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-filter=".interior-design">طراحی داخلی&nbsp;<sup>۲</sup></a>
+      </li>
+    </ul>
+    <!-- Grid -->
+    <div class="isotope-grid filter-grid cols-3">
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
+      <!-- Portfolio Item -->
+      <div class="grid-item mobile-apps mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-side-gallery-grid.html"><img src="{% static 'img/portfolio/01.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>سام نعمتی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-grid.html">طراحی رابط برنامه IOS</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">برنامه های موبایل</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۱۲</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item web-design mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-side-gallery-list.html"><img src="{% static 'img/portfolio/02.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>سارا بیات</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-list.html">طراحی قالب سایت</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">طراحی سایت</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۸</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item branding mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-wide-slider.html"><img src="{% static 'img/portfolio/03.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>رویا سعیدی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-wide-slider.html">طراحی برند شرکت</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">برند</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۲۵</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item mobile-apps mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-wide-gallery.html"><img src="{% static 'img/portfolio/04.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>خسرو شکیبا</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-wide-gallery.html">توسعه برنامه IOS</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">برنامه های موبایل</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۴۳</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item interior-design mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-side-gallery-grid.html"><img src="{% static 'img/portfolio/05.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>آرش خسروی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-grid.html">طراحی فضای کار</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">طراحی داخلی</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۲۷</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item branding mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-side-gallery-list.html"><img src="{% static 'img/portfolio/07.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>دانیال نوروزی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-list.html">طراحی بسته بندی اپل</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">طراحی بسته بندی</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۱۱۶</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item interior-design mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-wide-slider.html"><img src="{% static 'img/portfolio/06.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>رویا سعیدی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-wide-slider.html">طراحی قفسه دیوار</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">طراحی داخلی</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۳۸</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item branding mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-wide-gallery.html"><img src="{% static 'img/portfolio/08.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>رویا سعیدی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-wide-gallery.html">طراحی لوگو</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">طراحی بسته بندی</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۲۰۵</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Portfolio Item -->
+      <div class="grid-item mobile-apps mb-30 pb-2">
+        <div class="card portfolio-card">
+          <a class="portfolio-thumb" href="portfolio-single-side-gallery-grid.html"><img src="{% static 'img/portfolio/09.jpg' %}" alt="Portfolio Thumbnail" /></a>
+          <div class="card-body">
+            <div class="portfolio-meta">
+              <span><i class="fe-icon-user"></i>آرش خسروی</span>
+            </div>
+            <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-grid.html">طراحی رابط ساعت هوشمند</a></h5>
+          </div>
+          <div class="card-footer">
+            <div>
+              <a class="tag-link" href="#">برنامه های موبایل</a>
+            </div>
+            <div class="portfolio-meta">
+              <a href="#"><i class="fe-icon-heart text-accent"></i>۱۵۶</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-2">
+      <!-- Pagination -->
+      <nav class="pagination">
+        <a class="prev-btn" href="#"><i class="fe-icon-chevron-right"></i>صفحه قبل</a>
+        <ul class="pages">
+          <li class="d-block d-sm-none w-100">۲ / ۱۸</li>
+          <li class="d-none d-sm-inline-block">
+            <a href="#">۱</a>
+          </li>
+          <li class="d-none d-sm-inline-block active">
+            <a href="#">۲</a>
+          </li>
+          <li class="d-none d-sm-inline-block">
+            <a href="#">۳</a>
+          </li>
+          <li class="d-none d-sm-inline-block">
+            <a href="#">۴</a>
+          </li>
+          <li class="d-none d-sm-inline-block">
+            <a href="#">۵</a>
+          </li>
+          <li class="d-none d-sm-inline-block">...</li>
+          <li class="d-none d-sm-inline-block">
+            <a href="#">۱۸</a>
+          </li>
+        </ul><a class="next-btn" href="#">صفحه بعد<i class="fe-icon-chevron-left"></i></a>
+      </nav>
+    </div>
+  </div>
+{% endblock %}
