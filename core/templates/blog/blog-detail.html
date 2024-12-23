@@ -9,16 +9,16 @@
             <!-- Single Post Meta-->
             <div class="d-flex justify-content-between align-items-center pb-3">
               <div><a class="scroll-to post-author" href="#author">
-                  <div class="post-author-avatar"><img src="{% static 'img/blog/authors/th01.jpg' %}" alt="Post Author"/>
+                  <div class="post-author-avatar"><img src="" alt="Post Author"/>
                   </div>
-                  <div class="post-author-name">سارا بیات</div></a></div>
-              <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>۳</a><span class="text-sm"><i class="fe-icon-clock"></i>اردیبهشت ۰۳, ۱۳۹۷</span></div>
+                  <div class="post-author-name">{{post.photographer.get_full_name}}</div></a></div>
+              <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>۳</a><span class="text-sm"><i class="fe-icon-clock"></i>{{post.published_date|date:"d M,Y"}}</span></div>
             </div>
             <hr class="mb-4">
             <!-- Carousel-->
-            <div class="owl-carousel" data-owl-carousel="{ &quot;rtl&quot;: true, &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true }"><img src="{% static 'img/components/carousel/07.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/02.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/04.jpg' %}" alt="Carousel Image"/><img src="{% static 'img/components/carousel/05.jpg' %}" alt="Carousel Image"/>
-            </div>
-            <p class="pb-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+            <div class="mb-4"><img src="{{post.image.url}}" alt="تاریخچه فولکس واگن"/></div>
+            
+            <p class="pb-3 text-justify">{{post.content|safe|linebreaks}}</p>
             <h4>معماری مدرن در ۱۰ اسلایدها . گرایش‌ها جدید و بازگشت به عقب .</h4>
             <p class="pb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
             <div class="blockquote mb-4">
@@ -30,7 +30,7 @@
             <p class="pb-4">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد؟</p>
             <!-- Single Post Tags + Share-->
             <div class="d-sm-flex justify-content-between align-items-center border-top border-bottom mb-5 py-2">
-              <div class="py-2"><a class="tag-link" href="#">معماری</a><a class="tag-link" href="#">طراحی</a><a class="tag-link" href="#">ساخت و ساز</a></div>
+              <div class="py-2"><a class="tag-link" href="#">تگ</a><a class="tag-link" href="#">تگ</a><a class="tag-link" href="#">و همچنان تگ</a></div>
               <div class="py-2"><span class="dinline-block align-middle py-2 ml-2"><strong>اشتراک:</strong></span><a class="social-btn sb-style-3 sb-facebook mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-3 sb-twitter mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-3 sb-pinterest mb-0" href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="socicon-pinterest"></i></a></div>
             </div>
             <!-- Single Post Author-->
@@ -41,10 +41,10 @@
                   <div class="author-card-avatar"><img src="{% static 'img/widgets/author/avatar.jpg' %}" alt="Post Author"/>
                   </div>
                   <div class="author-card-details">
-                    <h5 class="author-card-name">سارا بیات</h5><span class="author-card-position">معمار و طراح</span>
+                    <h5 class="author-card-name">{{post.photograpther.get_full_name}}</h5><span class="author-card-position">عکاس و باریستا</span>
                   </div>
                 </div>
-                <p class="author-card-info">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                <p class="author-card-info">درود بر شما. بنده فرزین هستم. یک عکاس در حال یادگیری و همچنین یک باریستای حرفه ای.</p>
                 <div class="author-card-social-bar-wrap">
                   <div class="author-card-social-bar"><a class="social-btn sb-style-1 sb-facebook" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-1 sb-pinterest" href="#"><i class="socicon-pinterest"></i></a><a class="social-btn sb-style-1 sb-twitter" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-1 sb-linkedin" href="#"><i class="socicon-linkedin"></i></a></div>
                 </div>

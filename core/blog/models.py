@@ -1,23 +1,46 @@
 from django.db import models
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 # Post model
 class Post(models.Model):
-    photographer = models.ForeignKey(User, on_delete=models.CASCADE)
+    """ Summary:
+        - Post model that has built with many fields:
+            1- User use foreign key to recognize the user
+               that has been created.
+            2- Categories that use many-to-many field.
+            3- tags that use django taggit.
+            4- counted-likes and counted-views to show how many
+               likes and views a post has.
+            5- Status that gives you the condition of a post.
+    """
+    photographer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to="blog/", default="blog/default.jpg")
     title = models.CharField(max_length=250)
     content = models.TextField()
-    category = models.ManyToManyField("Category")
-    #tag
+    categories = models.ManyToManyField("Category")
+    tags = TaggableManager()
     status = models.BooleanField(default=False)
+    counted_views = models.IntegerField(default=0)
+    counted_likes = models.IntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    created_date = models.DateTimeField()
+    published_date = models.DateTimeField(null=True)
+    
+    class Meta:
+        ordering = ["-created_date"]
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
     
     def __str__(self):
         return self.title
     
+# Category model
 class Category(models.Model):
+    """ Summary:
+        - Just have a name.
+        - Use many-to-many field to identify category.
+    """
     name = models.CharField(max_length=250)
     
     def __str__(self):
