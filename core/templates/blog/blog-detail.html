@@ -10,17 +10,17 @@
             <!-- Single Post Meta-->
             <div class="d-flex justify-content-between align-items-center pb-3">
               <div><a class="scroll-to post-author" href="#author">
-                  <div class="post-author-avatar"><img src="" alt="Post Author"/>
+                  <div class="post-author-avatar"><img src="{{post.photographer.image.url}}" alt="{{post.id}}"/>
                   </div>
-                  <div class="post-author-name">{{post.photographer.get_full_name}}</div></a></div>
+                  <div class="post-author-name">{{post.photographer.first_name}}&nbsp;{{post.photographer.last_name}}</div></a></div>
               <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>۳</a><span class="text-sm"><i class="fe-icon-clock"></i>{{post.published_date|date:"D F Y"}}</span></div>
             </div>
             <hr class="mb-4">
             <!-- Carousel-->
             <div class="mb-4"><img src="{{post.image.url}}" alt="{{post.title}}"/></div>
-            <div class="blockquote mb-4">
+            <div class="blockquote mb-4 text-justify">
               <h3 class="block-title">{{post.title}}</h3>
-              <p class="pb-3 text-justify">{{post.content|safe|linebreaks}}</p>
+              <p class="pb-3">{{post.content|safe|linebreaks}}</p>
             </div>
            
             <!-- Single Post Tags + Share-->
@@ -35,13 +35,15 @@
               <div class="author-card mb-5">
                 <div class="author-card-cover" style="background-image: url({% static 'img/widgets/author/cover.jpg' %});"></div>
                 <div class="author-card-profile">
-                  <div class="author-card-avatar"><img src="{% static 'img/widgets/author/avatar.jpg' %}" alt="Post Author"/>
+                  <div class="author-card-avatar"><img src="{{post.photographer.image.url}}" alt="Post Author"/>
                   </div>
-                  <div class="author-card-details">
-                    <h5 class="author-card-name">{{post.photograpther.get_full_name}}</h5><span class="author-card-position">عکاس و باریستا</span>
+                  <div class="author-card-details ">
+                    <h5 class="author-card-name">{{post.photographer.first_name}}&nbsp;{{post.photographer.last_name}}</h5>
+                      <span class="author-card-position fe-icon-briefcase">&nbsp;{{post.photographer.job}}</span>
+                    
                   </div>
                 </div>
-                <p class="author-card-info">درود بر شما. بنده فرزین هستم. یک عکاس در حال یادگیری و همچنین یک باریستای حرفه ای.</p>
+                <p class="author-card-info">{{post.photographer.description}}</p>
                 <div class="author-card-social-bar-wrap">
                   <div class="author-card-social-bar"><a class="social-btn sb-style-1 sb-facebook" href="#"><i class="socicon-facebook"></i></a><a class="social-btn sb-style-1 sb-pinterest" href="#"><i class="socicon-pinterest"></i></a><a class="social-btn sb-style-1 sb-twitter" href="#"><i class="socicon-twitter"></i></a><a class="social-btn sb-style-1 sb-linkedin" href="#"><i class="socicon-linkedin"></i></a></div>
                 </div>

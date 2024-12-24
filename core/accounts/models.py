@@ -82,6 +82,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to="accounts/", default="blog/default.jpg")
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
+    job = models.CharField(max_length=250, null=True)
     description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)

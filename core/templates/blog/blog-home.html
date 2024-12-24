@@ -6,12 +6,12 @@
     <!-- Filters -->
     <ul class="nav nav-tabs nav-tabs-style-2 mb-4">
       <li class="nav-item">
-        <a class="nav-link active" href="#" data-filter="*">همه&nbsp;<sup>{{total_posts}}</sup></a>
+        <a class="nav-link active" href="" data-filter="*">همه&nbsp;<sup>{{total_posts}}</sup></a>
       </li>
       {% for cat in categories %}
         {% if cat.post_count > 0 %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:category' cat_name=cat.name %}" data-filter=".{{ cat.name }}">{{ cat.name }}&nbsp;<sup>{{cat.post_count}}</sup></a>
+          <a class="nav-link" href="" data-filter=".{{ cat.name }}">{{ cat.name }}&nbsp;<sup>{{cat.post_count}}</sup></a>
         </li>
         {% endif %}
       {% endfor %}
@@ -28,7 +28,7 @@
             <a class="portfolio-thumb" href="{% url 'blog:blog-detail' name=post.title %}"><img src="{{ post.image.url }}" alt="Portfolio Thumbnail" /></a>
             <div class="portfolio-card-body">
               <div class="portfolio-meta">
-                <span class="ml-3"><i class="fe-icon-user"></i>{{ post.photographer.get_full_name }}</span>
+                <span class="ml-3"><i class="fe-icon-user"></i>{{ post.photographer.first_name }}&nbsp;{{post.photographer.last_name}}</span>
                 <span class="ml-3"><i class="fe-icon-eye"></i>{{ post.counted_views }}</span>
                 <a href="#"><i class="fe-icon-heart text-accent"></i>{{post.counted_likes}}</a>
               </div>
