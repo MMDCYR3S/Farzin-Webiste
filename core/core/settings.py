@@ -32,7 +32,7 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast= lambda v:[s.strip() for s in v.spl
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     
     'taggit',
     
+    'accounts.apps.AccountsConfig',
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',
-    # 'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +136,6 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# User Model Config
+AUTH_USER_MODEL = "accounts.User"

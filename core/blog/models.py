@@ -14,7 +14,7 @@ class Post(models.Model):
                likes and views a post has.
             5- Status that gives you the condition of a post.
     """
-    photographer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    photographer = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to="blog/", default="blog/default.jpg")
     title = models.CharField(max_length=250)
     content = models.TextField()

@@ -126,7 +126,7 @@
     --warning: #fc8c3a;
     --danger: #ff5252;
     --light: #fff;
-    --dark: #343b43;
+    --dark: #2B3A2E;
     --accent: #e833b0;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
@@ -6709,7 +6709,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-    background-color: #16361E !important
+    background-color: #2B3A2E !important
 }
 
 a.bg-dark:hover,
@@ -18463,7 +18463,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 
 .page-title.bg-dark .page-title-subheading {
-    background: #2d333a
+    background: #2B3A2B
 }
 
 .page-title.page-title-lg {
