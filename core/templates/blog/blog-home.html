@@ -6,48 +6,49 @@
     <!-- Filters -->
     <ul class="nav nav-tabs nav-tabs-style-2 mb-4">
       <li class="nav-item">
-        <a class="nav-link active" href="#" data-filter="*">همه&nbsp;<sup>۹</sup></a>
+        <a class="nav-link active" href="#" data-filter="*">همه<sup>۹</sup></a>
       </li>
-      
-      {% for cate in categories %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'blog:category' cat_name=cate.name %}" data-filter=".mooz">{{cate.name}}&nbsp;<sup>۳</sup></a>
-      </li>
+      {% for post in posts %}
+        {% for cat in post.categories.all %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:category' cat_name=cat %}" data-filter=".{{cat}}">{{ cat }}<sup>{{cat|length}}</sup></a>
+          </li>
+        {% endfor %}
       {% endfor %}
-        
     </ul>
+    
     <!-- Grid -->
     <div class="isotope-grid filter-grid cols-3">
       <div class="gutter-sizer"></div>
-      <div class="grid-sizer"></div>
+        <div class="grid-sizer"></div>
+
       <!-- Post Begins -->
       {% for post in posts %}
-      <div class="grid-item mooz mb-30 pb-2">
-        <div class="card portfolio-card">
-          <a class="portfolio-thumb" href="{% url 'blog:blog-detail' name=post.title %}"><img src="{{post.image.url}}" alt="Portfolio Thumbnail" /></a>
-          <div class="card-body">
-            <div class="portfolio-meta">
-              <span><i class="fe-icon-user"> {{post.photographer.get_full_name}}</i></span>
+        {% for cat in post.categories.all %}
+          <div class="grid-item {{cat}} mb-30 pb-2">
+          
+            <div class="card portfolio-card">
+              <a class="portfolio-thumb" href="{% url 'blog:blog-detail' name=post.title %}"><img src="{{ post.image.url }}" alt="{{ post.title }}" /></a>
+              <div class="card-body">
+                <div class="portfolio-meta">
+                  <span><i class="fe-icon-user">{{ post.photographer.get_full_name }}</i></span>
+                </div>
+                <h5 class="portfolio-title"><a href="{% url 'blog:blog-detail' name=post.title %}">{{ post.title }}</a></h5>
+              </div>
+              <div class="card-footer">
+                <div>
+                  <a class="tag-link" href="{% url 'blog:category' cat_name=cat %}">{{ cat }}</a>
+                </div>
+          {% endfor %}
+                <div class="portfolio-meta">
+                  <a href="#"><i class="fe-icon-heart text-accent"></i>{{ post.counted_likes }}</a>
+                </div>
+              </div>
             </div>
-            <h5 class="portfolio-title"><a href="{% url 'blog:blog-detail' name=post.title %}">{{post.title}}</a></h5>
           </div>
-          <div class="card-footer">
-
-            {% for cat in post.categories.all %}
-            <div>
-              <a class="tag-link" href="{% url 'blog:category' cat_name=cat %}">{{cat}}</a>
-            </div>
-            {% endfor %}
-
-            <div class="portfolio-meta">
-              <a href="#"><i class="fe-icon-heart text-accent"></i>{{post.counted_likes}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
       {% endfor %}
       <!-- Post Ends -->
-      
+      </div>
       <!-- Pagination -->
       <nav class="pagination">
         <a class="prev-btn" href="#"><i class="fe-icon-chevron-right"></i>صفحه قبل</a>
@@ -74,6 +75,7 @@
           </li>
         </ul><a class="next-btn" href="#">صفحه بعد<i class="fe-icon-chevron-left"></i></a>
       </nav>
+    
     </div>
   </div>
 {% endblock %}

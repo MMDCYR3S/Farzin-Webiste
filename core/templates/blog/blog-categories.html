@@ -1,11 +1,10 @@
 <div class="widget widget-categories">
   <h4 class="widget-title">دسته بندی ها</h4>
   <ul>
+    {% for name, count in categories.items %}
     <li>
-      <a href="#">بازاریابی و مدیریت <span>&nbsp;(۲۴)</span></a>
+      <a href="{% url 'blog:category' cat_name=name %}">{{name}}<span>&nbsp;{{count}}</span></a>
     </li>
-    <li>
-      <a href="#">سرگرمی و شیوه زندگی <span>&nbsp;(۱۸)</span></a>
-    </li>
+    {% endfor %}
   </ul>
 </div>

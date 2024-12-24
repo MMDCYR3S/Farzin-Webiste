@@ -21,7 +21,10 @@ def blog_view(request, **fields):
     if fields.get("tag_name") != None:
         posts = Post.objects.filter(tags__name__in = [fields["tag_name"]])
     
-    context = {"posts": posts, "categories": categories}
+    context = {
+        "posts": posts,
+        "categories": categories,
+    }
     return render(request, "blog/blog-home.html", context)
 
 def detail_view(request, name):
