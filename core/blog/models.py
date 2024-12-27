@@ -45,3 +45,24 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
+    
+# Comment model
+class Comment(models.Model):
+    """ Summary:
+        - This function gets a post from the Post model and
+          then, it shows the comment in the relevant post.
+    """
+    post = models.ForeignKey("Post", on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    email = models.EmailField(max_length=254)
+    message = models.TextField()
+    applied = models.BooleanField(default=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ["-created_date"]
+    
+    def __str__(self):
+        return self.name
+    

@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.contrib import messages
 
+from blog.models import Post
 from website.forms import ContactForm
+from website.models import PhotoSample
 
 # IndexView for home page
 def index_view(request):
-    return render(request, "website/index.html")
+    photos = PhotoSample.objects.filter(status=True).order_by("-created_date")[:12]
+    posts = Post.objects.filter(status=True).order_by("-published_date")[:3]
+    context = {"posts" : posts, "photos" : photos}
+    return render(request, "website/index.html", context)
 
 # AboutView for about page
 def about_view(request):
@@ -31,4 +36,6 @@ def contact_view(request):
     return render(request, "website/contact.html", context)
 
 def sample_view(request):
-    return render(request, "website/sample.html")
+    photos = PhotoSample.objects.filter(status=True)
+    context = {"photos": photos}
+    return render(request, "website/photo-samples.html", context)

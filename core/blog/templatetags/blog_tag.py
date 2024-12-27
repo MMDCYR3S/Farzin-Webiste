@@ -1,5 +1,5 @@
 from django import template
-from blog.models import Post, Category
+from blog.models import Post, Category ,Comment
 
 register = template.Library()
 
@@ -34,4 +34,13 @@ def post_cat():
 def post_tags():
     posts = Post.objects.filter(status=True)
     context = {"posts": posts}
+    return context
+
+# Show comments
+@register.inclusion_tag("blog/blog-recent-comment.html")
+def recent_comments(count=3):
+    comments = Comment.objects.filter(applied=True).order_by("-created_date")[:count]
+    context = {
+        "comments" : comments,
+    }
     return context

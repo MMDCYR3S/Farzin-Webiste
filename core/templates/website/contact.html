@@ -7,6 +7,17 @@
         <h2 class="h4 block-title text-center">با من در تماس باشید</h2>
         <form method="POST" action="{% url 'website:contact' %}" class="needs-validation pt-4" novalidate>
           {% csrf_token %}
+
+          {% for message in messages %}
+          <div class="container-fluid p-0">
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              </button>
+              {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+          
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="form-group">
@@ -34,16 +45,6 @@
             <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
             <div class="invalid-feedback">لطفا پیام خود را بنویسید</div>
           </div>
-          {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}خطا:{% endif %}
-                    {{ message }}
-                </li>
-                {% endfor %}
-            </ul>
-          {% endif %}
           <div class="text-center">
             <button class="btn btn-gradient" type="submit">ارسال پیام</button>
           </div>

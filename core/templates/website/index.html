@@ -16,70 +16,54 @@
           </div>
         </div>
       </div>
-      <!-- Categories-->
+
+      <!-- Posts -->
       <section class="container pt-5 pb-4">
-        <h3 class="h4 block-title text-center">دسته بندی ها</h3>
+        <h3 class="h4 block-title text-center">نوشته ها</h3>
         <div class="row pt-3">
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .4;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category01.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">زنان</h3>
-              </div></a></div>
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .2;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category02.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">مردان</h3>
-              </div></a></div>
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .35;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category03.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">سفر</h3>
-              </div></a></div>
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .35;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category04.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">غذا</h3>
-              </div></a></div>
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .4;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category05.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">ازدواج</h3>
-              </div></a></div>
-          <div class="col-md-4 col-sm-6"><a class="d-block position-relative text-decoration-none text-center py-5 mb-30" href="#">
-              <div class="bg-overlay" style="opacity: .4;"></div>
-              <div class="img-cover" style="background-image: url({% static 'img/homepages/photographer-portfolio/category06.jpg' %});"></div>
-              <div class="bg-content px-4 pt-5 mt-5">
-                <h3 class="h5 text-white text-shadow mb-0">طبیعت</h3>
-              </div></a></div>
+          {% for post in posts %}
+          <div class="col-md-4 col-sm-6">
+            <a class="d-block position-relative text-decoration-none text-center py-5" href="{% url 'blog:blog-detail' name=post.title %}">
+              <div class="img-cover" style="background-image: url({{post.image.url}});"></div>
+              <div class="bg-content pt-5 mt-5"></div>
+            </a>
+            <div class="portfolio-card">
+              <div class="portfolio-card-body">
+                <div class="portfolio-meta">
+                  <span class="ml-3"><i class="fe-icon-calendar"></i>{{ post.published_date|date:"d F Y" }}</span>
+                  <span class="ml-3"><i class="fe-icon-eye"></i>{{ post.counted_views }}</span>
+                  <a href="#"><i class="fe-icon-heart text-accent"></i>{{post.counted_likes}}</a>
+                </div>
+                <h5 class="portfolio-title"><a href="{% url 'blog:blog-detail' name=post.title %}">{{ post.title }}</a></h5>
+                {% for cat in post.categories.all %}
+                  <a class="tag-link" href="{% url 'blog:category' cat_name=cat %}">{{ cat }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </section>
+
       <!-- Portfolio-->
       <section class="container-fluid">
-        <h3 class="h4 block-title text-center">عکس های پرطرفدار</h3>
-        <div class="isotope-grid cols-4 pt-3">
-          <div class="gutter-sizer"></div>
-          <div class="grid-sizer"></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/01.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th01.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/02.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th02.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/03.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th03.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/04.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th04.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/05.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th05.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/06.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th06.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/07.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th07.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/08.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th08.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/09.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th09.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/10.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th10.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/11.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th11.jpg' %}" alt="Gallery Image"/></a></div>
-          <div class="grid-item"><a class="gallery-item" href="{% static 'img/homepages/photographer-portfolio/portfolio/12.jpg' %}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{% static 'img/homepages/photographer-portfolio/portfolio/th12.jpg' %}" alt="Gallery Image"/></a></div>
-        </div>
+        <h3 class="h4 block-title text-center">نمونه کارها</h3>
+          <div class="isotope-grid cols-4 pt-3">
+            <div class="gutter-sizer"></div>
+            <div class="grid-sizer"></div>
+            
+          {% for photo in photos %}
+              <div class="grid-item"><a class="gallery-item" href="{{photo.image.url}}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{{photo.image.url}}" alt="{{photo.title}}"/></a></div> 
+          {% endfor %}
+          </div>
+          <div class="text-center mb-5">
+            <p class="h3">...</p>
+            <a href="{% url 'website:samples' %}"><button class="btn btn-gradient" type="submit">نمونه کارهای بیشتر</button></a>
+          </div>
       </section>
+
       <!-- Contact Form-->
-      <section class="container box-shadow position-relative pt-4" style="z-index: 5;">
+      <section class="container box-shadow position-relative pt-4 mb-4" style="z-index: 5;">
         <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4">
           <h2 class="h4 block-title text-center">با من در تماس باشید</h2>
           <form class="needs-validation pt-4" novalidate>

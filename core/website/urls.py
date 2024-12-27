@@ -13,5 +13,5 @@ urlpatterns = [
     path("", index_view, name="index"),
     path("about/", about_view, name="about"),
     path("contact/", contact_view, name="contact"),
-    path("sample/", sample_view, name="sample"),
+    path("samples/", sample_view, name="samples"),
 ]

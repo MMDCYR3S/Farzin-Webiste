@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="container mb-4" style="margin-top: -160px;">
+    <div class="bg-white box-shadow pt-4 pb-5 px-3 px-sm-4">
+        <div class="text-center mb-4">
+            <p class="text-xl text-muted font-weight-medium mb-2">&nbsp;نمونه کارها</p>
+            <h1 class="h3 block-title">فرزین عابدینی</h1>
+        </div>
+        <div class="isotope-grid cols-4">
+            <div class="gutter-sizer"></div>
+            <div class="grid-sizer"></div>
+
+            
+            {% for photo in photos %}
+            <div class="grid-item">
+                <a class="gallery-item" href="{{photo.image.url}}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}">
+                    <img src="{{photo.image.url}}" alt="{{photo.title}}"/>
+                </a>
+            </div> 
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock  %}

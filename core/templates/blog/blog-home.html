@@ -24,8 +24,11 @@
       <!-- Post Item Begin -->
       {% for post in posts %}
         <div class="grid-item {% for cat in post.categories.all %} {{ cat }} {% endfor %} mb-30">
+          <a class="d-block position-relative text-decoration-none text-center py-5" href="{% url 'blog:blog-detail' name=post.title %}">
+            <div class="img-cover" style="background-image: url({{post.image.url}});"></div>
+            <div class="bg-content pt-5 mt-5"></div>
+          </a>
           <div class="portfolio-card">
-            <a class="portfolio-thumb" href="{% url 'blog:blog-detail' name=post.title %}"><img src="{{ post.image.url }}" alt="Portfolio Thumbnail" /></a>
             <div class="portfolio-card-body">
               <div class="portfolio-meta">
                 <span class="ml-3"><i class="fe-icon-user"></i>{{ post.photographer.first_name }}&nbsp;{{post.photographer.last_name}}</span>

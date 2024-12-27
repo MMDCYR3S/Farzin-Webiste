@@ -1,7 +1,13 @@
 from django.shortcuts import render, get_object_or_404
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.db.models import Count
-from blog.models import Post , Category
+
+from blog.models import Post , Category , Comment
+from blog.forms import CommentForm
+
+from django.contrib import messages
 
 # Blog view
 def blog_view(request, **fields):
@@ -12,6 +18,7 @@ def blog_view(request, **fields):
           user.
         - Use paginator to paginate posts.
     """
+    # Posts - Categories, Total Posts Count
     posts = Post.objects.filter(status=True)
     categories = Category.objects.annotate(post_count=Count("post"))
     total_post_count = posts.count()
@@ -38,13 +45,37 @@ def blog_view(request, **fields):
     context = {
         "posts": posts,
         "categories": categories,
-        "total_posts": total_post_count
+        "total_posts": total_post_count,
     }
+    
     return render(request, "blog/blog-home.html", context)
 
 def detail_view(request, name):
+    """ Summary:
+        - This function is for showing every post in the
+          relevant html file with post's title.
+        - It's use for showing the comments of the
+          relevant post in the bottom and get new comments.
+    """
+    
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "دیدگاه شما ارسال شد و در انتظار تأیید است.")
+        else:
+            messages.error(request, "خطا در ارسال دیدگاه! لطفاً مجدداً تلاش کنید.")
+            
     posts = Post.objects.filter(status=True)
     post = get_object_or_404(posts, title=name)
-    context = {"post" : post}
+    
+    comments = Comment.objects.filter(post=post.id ,applied=True)
+    form = CommentForm()
+    
+    context = {
+        "post" : post,
+        "comments" : comments,
+        }
+    
     return render(request, "blog/blog-detail.html", context)
 

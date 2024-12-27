@@ -13,7 +13,7 @@
                   <div class="post-author-avatar"><img src="{{post.photographer.image.url}}" alt="{{post.id}}"/>
                   </div>
                   <div class="post-author-name">{{post.photographer.first_name}}&nbsp;{{post.photographer.last_name}}</div></a></div>
-              <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>۳</a><span class="text-sm"><i class="fe-icon-clock"></i>{{post.published_date|date:"D F Y"}}</span></div>
+              <div class="post-meta"><a class="scroll-to text-sm" href="#comments"><i class="fe-icon-message-square"></i>{{comments|length}}</a><span class="text-sm"><i class="fe-icon-clock"></i>{{post.published_date|date:"D F Y"}}</span></div>
             </div>
             <hr class="mb-4">
             <!-- Carousel-->
@@ -80,12 +80,7 @@
                 <!-- Categories End -->
 
                 <!-- Recent Comments-->
-                <div class="widget widget-recent-comments">
-                  <h4 class="widget-title">نظرات اخیر</h4><a class="recent-comment" href="#"><span class="recent-comment-meta">آرش کیوان در</span>
-                    <div class="recent-comment-title">ایده طراحی</div></a><a class="recent-comment" href="#"><span class="recent-comment-meta">جمشید راد در</span>
-                    <div class="recent-comment-title">بهترین پلاگین های وردپرس</div></a><a class="recent-comment" href="#"><span class="recent-comment-meta">خسرو بهرامی در</span>
-                    <div class="recent-comment-title">۵ ابزار طراحی مدرن</div></a>
-                </div>
+                {% recent_comments %}
                 
                 <!-- Recent Posts-->
                 {% recent_posts %}
@@ -105,22 +100,28 @@
         <div class="container pb-4">
           <div class="row">
             <div class="col-lg-9">
-              <h4 class="text-center pb-3">۳ دیدگاه</h4>
+              <h4 class="text-center pb-3">{{comments|length}} دیدگاه</h4>
+              
+              <!-- Comments begin -->
+              {% for comment in comments %}
               <div class="blockquote comment mb-4">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
                 <div class="d-sm-flex justify-content-between align-items-center">
                   <div class="testimonial-footer">
-                    <div class="testimonial-avatar"><img src="{% static 'img/testimonials/03.jpg' %}" alt="Comment Author Avatar"/>
+                    <div class="testimonial-avatar block-title"><img src="{% static 'img/testimonials/03.jpg' %}" alt="{{comment.name}}"/>
                     </div>
-                    <div class="d-table-cell align-middle pr-2">
-                      <div class="blockquote-footer">محمدرضا
-                        <cite>اردیبهشت ۰۳, ۱۳۹۷ در ۳:۱۰ بعداظهر</cite>
-                      </div>
+                    <div class="d-table-cell align-middle pr-2 pb-2">
+                      <div>{{comment.name}}</div>
+                      <cite class="text-sm ">{{comment.created_date|date:"d F Y"}}</cite>
                     </div>
                   </div>
-                  <div class="pt-3"><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
+                  <div ><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
                 </div>
-                <div class="blockquote comment">
+                <p class="pt-3">{{comment.message}}</p>
+              </div>
+              {% endfor %}
+              <!-- Comments end -->
+
+                <!-- <div class="blockquote comment">
                   <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
                   <div class="testimonial-footer">
                     <div class="testimonial-avatar"><img src="{% static 'img/testimonials/05.jpg' %}" alt="Comment Author Avatar"/>
@@ -131,23 +132,56 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="blockquote comment">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                <div class="d-sm-flex justify-content-between align-items-center">
-                  <div class="testimonial-footer">
-                    <div class="testimonial-avatar"><img src="{% static 'img/testimonials/04.jpg' %}" alt="Comment Author Avatar"/>
-                    </div>
-                    <div class="d-table-cell align-middle pr-2">
-                      <div class="blockquote-footer">سارا نعمتی
-                        <cite>اردیبهشت ۰۳, ۱۳۹۷ در ۱۱:۵۰ صبح</cite>
+                </div> 
+                -->
+
+              <!-- Comment form begins-->
+              <section class="container position-relative" style="z-index: 5;">
+                <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4">
+                  <h2 class="h4 block-title text-center">ارسال دیدگاه</h2>
+                  <form method="POST" action="{% url 'blog:blog-detail' name=post.title %}" class= "needs-validation pt-4" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="post" value="{{post.id}}">
+
+                    {% for message in messages %}
+                    <div class="container-fluid p-0">
+                      <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        </button>
+                        {{ message }}
                       </div>
                     </div>
-                  </div>
-                  <div class="pt-3"><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
+                    {% endfor %}
+
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label for="name">نام <strong class='text-danger'>*</strong></label>
+                          <input class="form-control" type="text" name="name" id="name" required>
+                          <div class="invalid-feedback">لطفا نام خود را وارد کنید!</div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label for="email">ایمیل <strong class='text-danger'>*</strong></label>
+                          <input class="form-control text-left placeholder-right" type="email" name="email" id="email" required>
+                          <div class="invalid-feedback">لطفا آدرس ایمیل معتبر وارد کنید!</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="message">پیام <strong class='text-danger'>*</strong></label>
+                      <textarea class="form-control" name="message" id="message" rows="10" required></textarea>
+                      <div class="invalid-feedback">لطفا پیام خود را بنویسید</div>
+                    </div>
+                    <div class="text-center">
+                      <button class="btn btn-gradient" type="submit">ارسال پیام</button>
+                    </div>
+          
+                  </form>
                 </div>
-              </div>
+              </section>
+              <!-- Comment form ends-->
             </div>
           </div>
         </div>
