@@ -3,7 +3,8 @@
 {% load blog_tag %}
 {% block content %}
     <!-- Page Content-->
-    <div class="container pb-5 mb-3 mt-3">
+    <div class="container pb-5 mb-3" style="margin-top: -160px;">
+      <div class="bg-white box-shadow px-5 py-5">
         <div class="row">
           <!-- Post Content-->
           <div class="col-lg-9">
@@ -111,7 +112,7 @@
                     </div>
                     <div class="d-table-cell align-middle pr-2 pb-2">
                       <div>{{comment.name}}</div>
-                      <cite class="text-sm ">{{comment.created_date|date:"d F Y"}}</cite>
+                      <cite class="text-sm ">{{comment.created_date|date:"d F - H:i"}}</cite>
                     </div>
                   </div>
                   <div ><a class="btn btn-primary btn-sm" href="#"><i class="fe-icon-corner-up-left"></i>&nbsp; پاسخ</a></div>
@@ -186,5 +187,6 @@
           </div>
         </div>
       </div>
+    </div>
 {% endblock content %}
     

@@ -2,8 +2,8 @@
 {% load static %}
 {% block content %}
     <!-- Contact Form-->
-    <section class="container position-relative pt-5" style="z-index: 5;">
-      <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4">
+    <section class="container position-relative mb-5" style="margin-top: -160px; z-index: 5;">
+      <div class="bg-white box-shadow pt-3 pb-5 px-3 px-sm-4 py-5">
         <h2 class="h4 block-title text-center">با من در تماس باشید</h2>
         <form method="POST" action="{% url 'website:contact' %}" class="needs-validation pt-4" novalidate>
           {% csrf_token %}

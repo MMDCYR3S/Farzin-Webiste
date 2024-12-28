@@ -4,17 +4,25 @@ from django.contrib import messages
 from blog.models import Post
 from website.forms import ContactForm
 from website.models import PhotoSample
+from accounts.models import User , Profile
 
 # IndexView for home page
 def index_view(request):
     photos = PhotoSample.objects.filter(status=True).order_by("-created_date")[:12]
     posts = Post.objects.filter(status=True).order_by("-published_date")[:3]
-    context = {"posts" : posts, "photos" : photos}
+    profile = Profile.objects.filter(user=request.user).first()
+    context = {
+        "posts" : posts,
+        "photos" : photos,
+        "profile" : profile,
+        }
     return render(request, "website/index.html", context)
 
 # AboutView for about page
 def about_view(request):
-    return render(request, "website/about.html")
+    profile = Profile.objects.filter(user=request.user).first()
+    context = {"profile" : profile}
+    return render(request, "website/about.html", context)
 
 # ContactView for contact page
 def contact_view(request):
