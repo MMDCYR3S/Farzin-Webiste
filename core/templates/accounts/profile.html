@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- Page Title -->
+  <div class="page-title d-flex" aria-label="Page title" style="background-image: url(img/page-title/shop-pattern.jpg);">
+    <div class="container text-right align-self-center">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">صفحه اصلی</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="account-orders.html">حساب کاربری</a>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="page-title-heading">تنظیمات حساب کاربری</h1>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-lg-4 pb-5">
+        <!-- Account Sidebar -->
+        <div class="author-card pb-3">
+          <div class="author-card-cover" style="background-image: url(img/widgets/author/cover.jpg);">
+            <a class="btn btn-light btn-sm" href="#" data-toggle="tooltip" title="" data-original-title="در حال حاضر ۲۹۰ امتیاز اضافی برای خرج کردن دارید"><i class="fe-icon-award text-md"></i>&nbsp;۲۹۰ امتیاز</a>
+          </div>
+          <div class="author-card-profile">
+            <div class="author-card-avatar">
+              <img src="img/account/user-ava.jpg" alt="Daniel Adams" />
+            </div>
+            <div class="author-card-details">
+              <h5 class="author-card-name text-lg">خسرو شکیبا</h5><span class="author-card-position">عضویت در ۰۶ فوریه ۲۰۱۷</span>
+            </div>
+          </div>
+        </div>
+        <div class="wizard">
+          <nav class="list-group list-group-flush">
+            <a class="list-group-item" href="account-orders.html">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fe-icon-shopping-bag ml-1 text-muted"></i>
+                  <div class="d-inline-block font-weight-medium text-uppercase">لیست سفارشات</div>
+                </div><span class="badge badge-secondary">۶</span>
+              </div>
+            </a><a class="list-group-item active" href="account-profile.html"><i class="fe-icon-user text-muted"></i>تنظیمات پروفایل</a><a class="list-group-item" href="account-address.html"><i class="fe-icon-map-pin text-muted"></i>آدرس</a><a class="list-group-item" href="account-wishlist.html">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fe-icon-heart ml-1 text-muted"></i>
+                  <div class="d-inline-block font-weight-medium text-uppercase">علاقه مندی های من</div>
+                </div><span class="badge badge-secondary">۳</span>
+              </div>
+            </a><a class="list-group-item" href="account-tickets.html">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="fe-icon-tag ml-1 text-muted"></i>
+                  <div class="d-inline-block font-weight-medium text-uppercase">تیکت های من</div>
+                </div><span class="badge badge-secondary">۴</span>
+              </div>
+            </a>
+          </nav>
+        </div>
+      </div>
+      <!-- Profile Settings -->
+      <div class="col-lg-8 pb-5">
+        <form class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-fn">نام</label>
+              <input class="form-control" type="text" id="account-fn" value="خسرو" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-ln">نام خانوادگی</label>
+              <input class="form-control" type="text" id="account-ln" value="شکیبا" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-email">آدرس ایمیل</label>
+              <input class="form-control" type="email" id="account-email" value="khosro.shakiba@example.com" disabled />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-phone">شماره تلفن</label>
+              <input class="form-control" type="text" id="account-phone" value="۰۲۱-۱۱۱۱۱۱۱۱" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-pass">رمز عبور جدید</label>
+              <input class="form-control" type="password" id="account-pass" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="account-confirm-pass">تایید رمز عبور</label>
+              <input class="form-control" type="password" id="account-confirm-pass" />
+            </div>
+          </div>
+          <div class="col-12">
+            <hr class="mt-2 mb-3" />
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+              <div class="custom-control custom-checkbox d-block">
+                <input class="custom-control-input" type="checkbox" id="subscribe_me" checked />
+                <label class="custom-control-label" for="subscribe_me">من را در خبرنامه عضو کن</label>
+              </div>
+              <button class="btn btn-primary" type="button" data-toast data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="موفق!" data-toast-message="اطلاعات شما با موفقیت به روز شد.">بروزرسانی پروفایل</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

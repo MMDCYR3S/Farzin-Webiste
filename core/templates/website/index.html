@@ -1,8 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block search %}
+<!-- Search Button -->
+<a class="search-trigger text-white" href="#fs-search" data-toggle="fullscreen-overlay">
+  <i class="fe-icon-search"></i>
+</a>
+
+<!-- Full Screen Search-->
+<div class="fs-overlay-wrapper" id="fs-search" style="background-image: url({% static 'img/fs-overlay-bg.png' %});"><span class="fs-overlay-close"><i class="fe-icon-x"></i></span>
+  <div class="fs-overlay-inner">
+    <div class="fs-overlay-content">
+      <div class="container">
+        <form class="input-group" action="{% url 'website:search' %}" method="get">
+          <div class="input-group-prepend">
+            <div class="input-group-text"><i class="fe-icon-search"></i></div>
+          </div>
+          <input class="form-control" type="text" name="s" placeholder="جستجو در سایت ...">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+  
+
 {% block content %}
       <!-- Page Content -->
-      {% if profile %}
       <div class="container" style="margin-top: -160px;">
         <div class="bg-white box-shadow pt-4 pb-5 px-3 px-sm-4">
           <figure class="figure d-block rounded-circle my-3 p-2 mx-auto" style="width: 180px;"><img class="d-block w-100 rounded-circle" src="{{profile.image.url}}" alt="Farzin Abedini"></figure>
@@ -17,7 +41,6 @@
           </div>
         </div>
       </div>
-      {% endif %}
 
       <!-- Posts -->
       <section class="container pt-5 pb-4">
@@ -43,6 +66,10 @@
               </div>
             </div>
           </div>
+          {% empty %}
+          <div class="container bg-white box-shadow py-5 text-center">
+            <p class="h3">پستی یافت نشد!</p>
+          </div>
           {% endfor %}
         </div>
       </section>
@@ -55,7 +82,11 @@
             <div class="grid-sizer"></div>
             
           {% for photo in photos %}
-              <div class="grid-item"><a class="gallery-item" href="{{photo.image.url}}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;Gallery Image Caption&quot;}"><img src="{{photo.image.url}}" alt="{{photo.title}}"/></a></div> 
+              <div class="grid-item"><a class="gallery-item" href="{{photo.image.url}}" data-fancybox="gallery" data-options="{&quot;caption&quot;: &quot;{{photo.title}}&quot;}"><img src="{{photo.image.url}}" alt="{{photo.title}}"/></a></div> 
+          {% empty %}
+            <div class="container bg-white box-shadow py-5 text-center">
+              <p class="h3">نمونه کاری برای نمایش یافت نشد!</p>
+            </div>
           {% endfor %}
           </div>
           <div class="text-center mb-5">

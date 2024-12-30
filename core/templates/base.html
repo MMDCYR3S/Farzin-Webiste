@@ -39,23 +39,21 @@
       <!-- Navbar: Ghost White-->
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
       <header class="navbar-ghost navbar-ghost-white navbar-floating">
-        <div class="container text-center"><a class="search-trigger text-white" href="#fs-search" data-toggle="fullscreen-overlay"><i class="fe-icon-search"></i></a><a class="menu-trigger text-white" href="#fs-menu" data-toggle="fullscreen-overlay"><span>منو</span><i class="fe-icon-menu"></i></a><a class="navbar-brand d-inline-block" href="{% url 'website:index'%}"><img src="{% static 'img/logo/logo-light.png' %}" alt="CreateX"/></a></div>
-      </header>
-        <!-- Full Screen Search-->
-        <div class="fs-overlay-wrapper" id="fs-search" style="background-image: url({% static 'img/fs-overlay-bg.png' %});"><span class="fs-overlay-close"><i class="fe-icon-x"></i></span>
-          <div class="fs-overlay-inner">
-            <div class="fs-overlay-content">
-              <div class="container">
-                <form class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fe-icon-search"></i></div>
-                  </div>
-                  <input class="form-control" type="text" placeholder="جستجو در سایت ...">
-                </form>
-              </div>
-            </div>
-          </div>
+        <div class="container text-center">
+          
+          {% block search %}
+          {% endblock search %}
+            
+          <a class="menu-trigger text-white" href="#fs-menu" data-toggle="fullscreen-overlay">
+            <span>منو</span>
+            <i class="fe-icon-menu"></i>
+          </a>
+          <a class="navbar-brand d-inline-block" href="{% url 'website:index'%}">
+            <img src="{% static 'img/logo/logo-light.png' %}" alt="CreateX"/>
+          </a>
         </div>
+      </header>
+        
         <!-- Full Screen Menu-->
         <div class="fs-overlay-wrapper" id="fs-menu" style="background-image: url({% static 'img/fs-overlay-bg.png' %});"><span class="fs-overlay-close"><i class="fe-icon-x"></i></span>
           <div class="fs-overlay-inner">
@@ -69,7 +67,12 @@
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:samples' %}">نمونه کارها</a></li>
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:about' %}">درباره من</a></li>
                       <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'website:contact' %}">ارتباط با من</a></li>
-                      <li class="mb-0"><a class="dropdown-item lead py-2" href="account-orders.html">حساب کاربری</a></li>
+                      {% if request.user.is_authenticated %}
+                      <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'accounts:profile' %}">حساب کاربری</a></li>
+                      <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'accounts:logout' %}">خروج</a></li>
+                      {% else %}
+                      <li class="mb-0"><a class="dropdown-item lead py-2" href="{% url 'accounts:login' %}">ورود/عضویت</a></li>
+                      {% endif %}
                     </ul>
                   </div>
                   <div class="col-sm-6 d-none d-sm-block pt-3">

@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block search %}
+<!-- Search Button -->
+<a class="search-trigger text-white" href="#fs-search" data-toggle="fullscreen-overlay">
+  <i class="fe-icon-search"></i>
+</a>
+
+<!-- Full Screen Search-->
+<div class="fs-overlay-wrapper" id="fs-search" style="background-image: url({% static 'img/fs-overlay-bg.png' %});"><span class="fs-overlay-close"><i class="fe-icon-x"></i></span>
+  <div class="fs-overlay-inner">
+    <div class="fs-overlay-content">
+      <div class="container">
+        <form class="input-group" action="{% url 'blog:search' %}" method="get">
+          <div class="input-group-prepend">
+            <div class="input-group-text"><i class="fe-icon-search"></i></div>
+          </div>
+          <input class="form-control" type="text" name="s" placeholder="جستجو نوشته مورد نظر...">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
   <!-- Page Content -->
   <div class="container" style="margin-top: -160px;">
@@ -44,8 +68,8 @@
             </div>
           </div>
           {% empty %}
-          <div class="grid-item position-relative mt-5">
-            <h1 class="h3 text-center">پست یافت نشد!</h1>
+          <div class="container grid-item position-relative bg-white box-shadow py-5 mt-5">
+            <h1 class="h3 text-center">متأسفانه پست مورد نظر یافت نشد!</h1>
           </div>
         {% endfor %}
       </div>

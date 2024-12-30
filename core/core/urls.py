@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
     path('blog/', include('blog.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 # Serving static and media for project
